@@ -1,31 +1,28 @@
 <?php declare(strict_types=1);
 
-namespace WyriHaximus\React\Parallel;
+namespace ReactParallel\Runtime;
 
 use Closure;
 use parallel\Future;
 use parallel\Runtime as ParallelRuntime;
 use React\Promise\PromiseInterface;
+use ReactParallel\FutureToPromiseConverter\FutureToPromiseConverter;
 use function React\Promise\resolve;
 
 final class Runtime
 {
-    /** @var ParallelRuntime */
-    private $runtime;
+    private ParallelRuntime $runtime;
 
-    /** @var FutureToPromiseConverter */
-    private $futureToPromiseConverter;
+    private FutureToPromiseConverter $futureToPromiseConverter;
 
     public function __construct(FutureToPromiseConverter $futureToPromiseConverter, string $autoload)
     {
-        $this->runtime = new ParallelRuntime($autoload);
         $this->futureToPromiseConverter = $futureToPromiseConverter;
+        $this->runtime                  = new ParallelRuntime($autoload);
     }
 
     /**
-     * @param  Closure           $callable
      * @param  mixed[] $args
-     * @return PromiseInterface
      */
     public function run(Closure $callable, array $args = []): PromiseInterface
     {

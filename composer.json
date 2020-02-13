@@ -1,5 +1,5 @@
 {
-    "name": "wyrihaximus/react-parallel-runtime",
+    "name": "react-parallel/runtime",
     "description": "Convinence wrapper around ext-parallel Runtime for and ReactPHP",
     "license": "MIT",
     "authors": [
@@ -10,98 +10,41 @@
         }
     ],
     "require": {
-        "php": "^7.3",
+        "php": "^7.4",
         "ext-parallel": "*",
+        "react-parallel/future-to-promise-converter": "dev-master",
         "react/event-loop": "^1.1",
-        "wyrihaximus/react-parallel-future-to-promise-converter": "^1.0 || ^1.0.1"
+        "react/promise": "^2.7"
     },
     "require-dev": {
-        "thecodingmachine/safe": "^0.1.16",
-        "wyrihaximus/async-test-utilities": "^1.1",
+        "thecodingmachine/safe": "1.0.0 as 0.1.17",
+        "wyrihaximus/async-test-utilities": "dev-update-to-test-utilities-2.0 as 1.999.999",
         "wyrihaximus/ticking-promise": "^1.6"
     },
     "config": {
         "platform": {
-            "php": "7.3"
+            "php": "7.4"
         },
         "sort-packages": true
     },
     "autoload": {
         "psr-4": {
-            "WyriHaximus\\React\\Parallel\\": "src/"
+            "ReactParallel\\Runtime\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "WyriHaximus\\React\\Tests\\Parallel\\": "tests/"
+            "ReactParallel\\Tests\\Runtime\\": "tests/"
         }
     },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "scripts": {
         "post-install-cmd": [
             "composer normalize"
         ],
         "post-update-cmd": [
             "composer normalize"
-        ],
-        "ci-coverage": [
-            "if [ -f ./build/logs/clover.xml ]; then wget https://scrutinizer-ci.com/ocular.phar && php ocular.phar code-coverage:upload --format=php-clover ./build/logs/clover.xml; fi"
-        ],
-        "cs": [
-            "php-cs-fixer fix --config=.php_cs --ansi --dry-run --diff --verbose --allow-risky=yes --show-progress=estimating"
-        ],
-        "cs-fix": [
-            "php-cs-fixer fix --config=.php_cs --ansi --verbose --allow-risky=yes --show-progress=estimating"
-        ],
-        "infection": [
-            "infection --ansi --threads=4"
-        ],
-        "lint-php": [
-            "parallel-lint --exclude vendor ."
-        ],
-        "qa-all": [
-            "composer validate --ansi",
-            "composer normalize --ansi",
-            "@lint-php",
-            "@cs",
-            "@stan",
-            "@unit",
-            "@infection"
-        ],
-        "qa-all-extended": [
-            "composer validate --ansi",
-            "composer normalize --ansi",
-            "@lint-php",
-            "@cs",
-            "@stan",
-            "@unit-coverage",
-            "@infection"
-        ],
-        "qa-ci": [
-            "@unit"
-        ],
-        "qa-ci-extended": [
-            "@qa-all-extended"
-        ],
-        "qa-ci-windows": [
-            "@qa-windows"
-        ],
-        "qa-contrib": [
-            "@qa-all"
-        ],
-        "qa-windows": [
-            "@lint-php",
-            "@cs",
-            "@stan",
-            "@unit"
-        ],
-        "stan": [
-            "phpstan analyse src tests --level max --ansi -c phpstan.neon"
-        ],
-        "unit": [
-            "phpunit --colors=always -c phpunit.xml.dist"
-        ],
-        "unit-coverage": [
-            "phpunit --colors=always -c phpunit.xml.dist --coverage-text --coverage-html covHtml --coverage-clover ./build/logs/clover.xml"
         ]
     }
 }

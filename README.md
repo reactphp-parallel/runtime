@@ -1,18 +1,18 @@
 # ReactPHP Runtime wrapper for ext-parallel
 
-[![Linux Build Status](https://travis-ci.com/WyriHaximus/reactphp-parallel-runtime.png)](https://travis-ci.com/WyriHaximus/reactphp-parallel-runtime)
-[![Latest Stable Version](https://poser.pugx.org/WyriHaximus/react-parallel-runtime/v/stable.png)](https://packagist.org/packages/WyriHaximus/react-parallel-runtime)
-[![Total Downloads](https://poser.pugx.org/WyriHaximus/react-parallel-runtime/downloads.png)](https://packagist.org/packages/WyriHaximus/react-parallel-runtime)
-[![Code Coverage](https://scrutinizer-ci.com/g/WyriHaximus/reactphp-parallel-runtime/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/WyriHaximus/reactphp-parallel-runtime/?branch=master)
-[![License](https://poser.pugx.org/WyriHaximus/react-parallel-runtime/license.png)](https://packagist.org/packages/wyrihaximus/react-parallel-runtime)
-[![PHP 7 ready](http://php7ready.timesplinter.ch/WyriHaximus/reactphp-parallel-runtime/badge.svg)](https://travis-ci.org/WyriHaximus/reactphp-parallel-runtime)
+[![Linux Build Status](https://travis-ci.com/Reactphp-parallel/runtime.png)](https://travis-ci.com/Reactphp-parallel/runtime)
+[![Latest Stable Version](https://poser.pugx.org/React-parallel/runtime/v/stable.png)](https://packagist.org/packages/React-parallel/runtime)
+[![Total Downloads](https://poser.pugx.org/React-parallel/runtime/downloads.png)](https://packagist.org/packages/React-parallel/runtime)
+[![Code Coverage](https://scrutinizer-ci.com/g/Reactphp-parallel/runtime/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/Reactphp-parallel/runtime/?branch=master)
+[![License](https://poser.pugx.org/React-parallel/runtime/license.png)](https://packagist.org/packages/react-parallel/runtime)
+[![PHP 7 ready](http://php7ready.timesplinter.ch/Reactphp-parallel/runtime/badge.svg)](https://travis-ci.org/Reactphp-parallel/runtime)
 
 ### Installation ###
 
 To install via [Composer](http://getcomposer.org/), use the command below, it will automatically detect the latest version and bind it with `~`.
 
 ```
-composer require wyrihaximus/react-parallel-runtime 
+composer require react-parallel/runtime 
 ```
 
 # Usage

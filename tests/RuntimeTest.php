@@ -1,12 +1,12 @@
 <?php declare(strict_types=1);
 
-namespace WyriHaximus\React\Tests\Parallel;
+namespace ReactParallel\Tests\Runtime;
 
 use React\EventLoop\Factory;
 use React\Promise\ExtendedPromiseInterface;
 use WyriHaximus\AsyncTestUtilities\AsyncTestCase;
-use WyriHaximus\React\Parallel\FutureToPromiseConverter;
-use WyriHaximus\React\Parallel\Runtime;
+use ReactParallel\FutureToPromiseConverter\FutureToPromiseConverter;
+use ReactParallel\Runtime\Runtime;
 use parallel\Runtime\Error\Closed;
 use function Safe\sleep;
 use function WyriHaximus\React\timedPromise;
@@ -22,7 +22,7 @@ final class RuntimeTest extends AsyncTestCase
         $runtime = new Runtime(new FutureToPromiseConverter($loop), \dirname(__DIR__) . '/vendor/autoload.php');
 
         /** @var ExtendedPromiseInterface $promise */
-        $promise = $runtime->run(function () {
+        $promise = $runtime->run(function (): int {
             sleep(3);
 
             return 3;

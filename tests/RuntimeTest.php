@@ -16,10 +16,13 @@ use function WyriHaximus\React\timedPromise;
  */
 final class RuntimeTest extends AsyncTestCase
 {
-    public function testConvertSuccess(): void
+    /**
+     * @test
+     */
+    public function convertSuccess(): void
     {
         $loop = Factory::create();
-        $runtime = new Runtime(new FutureToPromiseConverter($loop), \dirname(__DIR__) . '/vendor/autoload.php');
+        $runtime = Runtime::create(new FutureToPromiseConverter($loop));
 
         /** @var ExtendedPromiseInterface $promise */
         $promise = $runtime->run(function (): int {
@@ -38,13 +41,16 @@ final class RuntimeTest extends AsyncTestCase
         self::assertSame(3, $three);
     }
 
-    public function testConvertFailure(): void
+    /**
+     * @test
+     */
+    public function convertFailure(): void
     {
         self::expectException(\Exception::class);
         self::expectExceptionMessage('Rethrow exception');
 
         $loop = Factory::create();
-        $runtime = new Runtime(new FutureToPromiseConverter($loop), \dirname(__DIR__) . '/vendor/autoload.php');
+        $runtime = Runtime::create(new FutureToPromiseConverter($loop));
 
         /** @var ExtendedPromiseInterface $promise */
         $promise = $runtime->run(function (): void {
@@ -63,13 +69,16 @@ final class RuntimeTest extends AsyncTestCase
         self::assertSame(3, $three);
     }
 
-    public function testWeClosedTheThread(): void
+    /**
+     * @test
+     */
+    public function weClosedTheThread(): void
     {
         self::expectException(Closed::class);
         self::expectExceptionMessage('Runtime closed');
 
         $loop = Factory::create();
-        $runtime = new Runtime(new FutureToPromiseConverter($loop), \dirname(__DIR__) . '/vendor/autoload.php');
+        $runtime = Runtime::create(new FutureToPromiseConverter($loop));
 
         /** @var ExtendedPromiseInterface $promise */
         $promise = timedPromise($loop, 1, $runtime)->then(function (Runtime $runtime) {
@@ -89,13 +98,16 @@ final class RuntimeTest extends AsyncTestCase
         }
     }
 
-    public function testWeKilledTheThread(): void
+    /**
+     * @test
+     */
+    public function weKilledTheThread(): void
     {
         self::expectException(Closed::class);
         self::expectExceptionMessage('Runtime closed');
 
         $loop = Factory::create();
-        $runtime = new Runtime(new FutureToPromiseConverter($loop), \dirname(__DIR__) . '/vendor/autoload.php');
+        $runtime = Runtime::create(new FutureToPromiseConverter($loop));
 
         /** @var ExtendedPromiseInterface $promise */
         $promise = timedPromise($loop, 1, $runtime)->then(function (Runtime $runtime) {

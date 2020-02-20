@@ -8,12 +8,18 @@ use parallel\Runtime as ParallelRuntime;
 use React\Promise\PromiseInterface;
 use ReactParallel\FutureToPromiseConverter\FutureToPromiseConverter;
 use function React\Promise\resolve;
+use const WyriHaximus\Constants\ComposerAutoloader\LOCATION;
 
 final class Runtime
 {
     private ParallelRuntime $runtime;
 
     private FutureToPromiseConverter $futureToPromiseConverter;
+
+    public static function create(FutureToPromiseConverter $futureToPromiseConverter): self
+    {
+        return new self($futureToPromiseConverter, LOCATION);
+    }
 
     public function __construct(FutureToPromiseConverter $futureToPromiseConverter, string $autoload)
     {

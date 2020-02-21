@@ -17,8 +17,7 @@
         "react/promise": "^2.7"
     },
     "require-dev": {
-        "thecodingmachine/safe": "1.0.0 as 0.1.17",
-        "wyrihaximus/async-test-utilities": "dev-update-to-test-utilities-2.0 as 1.999.999",
+        "wyrihaximus/async-test-utilities": "^2.0.0-alpha1",
         "wyrihaximus/ticking-promise": "^1.6"
     },
     "config": {

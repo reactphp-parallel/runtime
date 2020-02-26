@@ -1,11 +1,11 @@
 # ReactPHP Runtime wrapper for ext-parallel
 
-[![Linux Build Status](https://travis-ci.com/Reactphp-parallel/runtime.png)](https://travis-ci.com/Reactphp-parallel/runtime)
+![Continuous Integration](https://github.com/Reactphp-parallel/runtime/workflows/Continuous%20Integration/badge.svg)
 [![Latest Stable Version](https://poser.pugx.org/React-parallel/runtime/v/stable.png)](https://packagist.org/packages/React-parallel/runtime)
 [![Total Downloads](https://poser.pugx.org/React-parallel/runtime/downloads.png)](https://packagist.org/packages/React-parallel/runtime)
 [![Code Coverage](https://scrutinizer-ci.com/g/Reactphp-parallel/runtime/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/Reactphp-parallel/runtime/?branch=master)
-[![License](https://poser.pugx.org/React-parallel/runtime/license.png)](https://packagist.org/packages/react-parallel/runtime)
-[![PHP 7 ready](http://php7ready.timesplinter.ch/Reactphp-parallel/runtime/badge.svg)](https://travis-ci.org/Reactphp-parallel/runtime)
+[![Type Coverage](https://shepherd.dev/github/Reactphp-parallel/runtime/coverage.svg)](https://shepherd.dev/github/Reactphp-parallel/runtime)
+[![License](https://poser.pugx.org/React-parallel/runtime/license.png)](https://packagist.org/packages/React-parallel/runtime)
 
 ### Installation ###
 
@@ -18,17 +18,18 @@ composer require react-parallel/runtime
 # Usage
 
 ```php
-$autoloader = \dirname(__DIR__) . '/vendor/autoload.php';
-require $autoloader;
+use React\EventLoop\Factory;
+use ReactParallel\Runtime\Runtime;
+use ReactParallel\FutureToPromiseConverter\FutureToPromiseConverter;
 
 $loop = Factory::create();
-$runtime = new Runtime(new FutureToPromiseConverter($loop), $autoloader);
+$runtime = Runtime::create(new FutureToPromiseConverter($loop));
 
 $runtime->run(function () {
     sleep(3);
 
     return 3;
-})->then(function (int $int): void {
+})->done(function (int $int): void {
     echo $int, PHP_EOL;
 });
 

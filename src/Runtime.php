@@ -28,7 +28,7 @@ final class Runtime
     }
 
     /**
-     * @param  mixed[] $args
+     * @param  array<int, mixed> $args
      */
     public function run(Closure $callable, array $args = []): PromiseInterface
     {

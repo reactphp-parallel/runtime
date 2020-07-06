@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace ReactParallel\Runtime;
 
@@ -7,7 +9,9 @@ use parallel\Future;
 use parallel\Runtime as ParallelRuntime;
 use React\Promise\PromiseInterface;
 use ReactParallel\EventLoop\EventLoopBridge;
+
 use function React\Promise\resolve;
+
 use const WyriHaximus\Constants\ComposerAutoloader\LOCATION;
 
 final class Runtime

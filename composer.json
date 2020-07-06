@@ -18,12 +18,12 @@
         "wyrihaximus/constants": "^1.4.3"
     },
     "require-dev": {
-        "wyrihaximus/async-test-utilities": "^2.0",
+        "wyrihaximus/async-test-utilities": "^2.2",
         "wyrihaximus/ticking-promise": "^1.6"
     },
     "config": {
         "platform": {
-            "php": "7.4"
+            "php": "7.4.7"
         },
         "sort-packages": true
     },

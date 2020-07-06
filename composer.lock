@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "100a575d735c86774d0750ff4eea3d47",
+    "content-hash": "db90b65758c24f9ad13e947f8fc38f89",
     "packages": [
         {
             "name": "react-parallel/event-loop",
@@ -401,6 +401,68 @@
             "time": "2020-04-04T16:56:54+00:00"
         },
         {
+            "name": "beberlei/assert",
+            "version": "v3.2.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/beberlei/assert.git",
+                "reference": "d63a6943fc4fd1a2aedb65994e3548715105abcf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/beberlei/assert/zipball/d63a6943fc4fd1a2aedb65994e3548715105abcf",
+                "reference": "d63a6943fc4fd1a2aedb65994e3548715105abcf",
+                "shasum": ""
+            },
+            "require": {
+                "ext-ctype": "*",
+                "ext-json": "*",
+                "ext-mbstring": "*",
+                "ext-simplexml": "*",
+                "php": "^7"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "*",
+                "phpstan/phpstan-shim": "*",
+                "phpunit/phpunit": ">=6.0.0 <8"
+            },
+            "suggest": {
+                "ext-intl": "Needed to allow Assertion::count(), Assertion::isCountable(), Assertion::minCount(), and Assertion::maxCount() to operate on ResourceBundles"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Assert\\": "lib/Assert"
+                },
+                "files": [
+                    "lib/Assert/functions.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-2-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Benjamin Eberlei",
+                    "email": "kontakt@beberlei.de",
+                    "role": "Lead Developer"
+                },
+                {
+                    "name": "Richard Quadling",
+                    "email": "rquadling@gmail.com",
+                    "role": "Collaborator"
+                }
+            ],
+            "description": "Thin assertion library for input validation in business models.",
+            "keywords": [
+                "assert",
+                "assertion",
+                "validation"
+            ],
+            "time": "2019-12-19T17:51:41+00:00"
+        },
+        {
             "name": "clue/block-react",
             "version": "v1.3.1",
             "source": {
@@ -794,16 +856,16 @@
         },
         {
             "name": "dealerdirect/phpcodesniffer-composer-installer",
-            "version": "v0.5.0",
+            "version": "v0.6.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Dealerdirect/phpcodesniffer-composer-installer.git",
-                "reference": "e749410375ff6fb7a040a68878c656c2e610b132"
+                "reference": "8001af8eb107fbfcedc31a8b51e20b07d85b457a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Dealerdirect/phpcodesniffer-composer-installer/zipball/e749410375ff6fb7a040a68878c656c2e610b132",
-                "reference": "e749410375ff6fb7a040a68878c656c2e610b132",
+                "url": "https://api.github.com/repos/Dealerdirect/phpcodesniffer-composer-installer/zipball/8001af8eb107fbfcedc31a8b51e20b07d85b457a",
+                "reference": "8001af8eb107fbfcedc31a8b51e20b07d85b457a",
                 "shasum": ""
             },
             "require": {
@@ -856,37 +918,32 @@
                 "stylecheck",
                 "tests"
             ],
-            "time": "2018-10-26T13:21:45+00:00"
+            "time": "2020-01-29T20:22:20+00:00"
         },
         {
             "name": "doctrine/coding-standard",
-            "version": "7.0.2",
+            "version": "8.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/coding-standard.git",
-                "reference": "d8a60ec4da68025c42795b714f66e277dd3e11de"
+                "reference": "637003febec655f1b27f4301b44bf2264be57434"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/coding-standard/zipball/d8a60ec4da68025c42795b714f66e277dd3e11de",
-                "reference": "d8a60ec4da68025c42795b714f66e277dd3e11de",
+                "url": "https://api.github.com/repos/doctrine/coding-standard/zipball/637003febec655f1b27f4301b44bf2264be57434",
+                "reference": "637003febec655f1b27f4301b44bf2264be57434",
                 "shasum": ""
             },
             "require": {
-                "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0",
-                "php": "^7.2",
-                "slevomat/coding-standard": "^6.0",
-                "squizlabs/php_codesniffer": "^3.5.3"
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.6.2 || ^0.7",
+                "php": "^7.2 || ^8.0",
+                "slevomat/coding-standard": "^6.3.9",
+                "squizlabs/php_codesniffer": "^3.5.5"
             },
             "type": "phpcodesniffer-standard",
             "extra": {
                 "branch-alias": {
                     "dev-master": "7.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Doctrine\\Sniffs\\": "lib/Doctrine/Sniffs"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -917,7 +974,7 @@
                 "standard",
                 "style"
             ],
-            "time": "2019-12-11T07:59:21+00:00"
+            "time": "2020-07-05T20:35:22+00:00"
         },
         {
             "name": "doctrine/instantiator",
@@ -1817,49 +1874,6 @@
             "time": "2020-06-25T15:14:51+00:00"
         },
         {
-            "name": "jakub-onderka/php-console-color",
-            "version": "v0.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/JakubOnderka/PHP-Console-Color.git",
-                "reference": "d5deaecff52a0d61ccb613bb3804088da0307191"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/JakubOnderka/PHP-Console-Color/zipball/d5deaecff52a0d61ccb613bb3804088da0307191",
-                "reference": "d5deaecff52a0d61ccb613bb3804088da0307191",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.4.0"
-            },
-            "require-dev": {
-                "jakub-onderka/php-code-style": "1.0",
-                "jakub-onderka/php-parallel-lint": "1.0",
-                "jakub-onderka/php-var-dump-check": "0.*",
-                "phpunit/phpunit": "~4.3",
-                "squizlabs/php_codesniffer": "1.*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "JakubOnderka\\PhpConsoleColor\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-2-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Jakub Onderka",
-                    "email": "jakub.onderka@gmail.com"
-                }
-            ],
-            "abandoned": "php-parallel-lint/php-console-color",
-            "time": "2018-09-29T17:23:10+00:00"
-        },
-        {
             "name": "jangregor/phpstan-prophecy",
             "version": "0.6.2",
             "source": {
@@ -1918,6 +1932,50 @@
             ],
             "description": "Provides a phpstan/phpstan extension for phpspec/prophecy",
             "time": "2020-02-17T16:55:34+00:00"
+        },
+        {
+            "name": "jetbrains/phpstorm-stubs",
+            "version": "v2019.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/JetBrains/phpstorm-stubs.git",
+                "reference": "883b6facd78e01c0743b554af86fa590c2573f40"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/JetBrains/phpstorm-stubs/zipball/883b6facd78e01c0743b554af86fa590c2573f40",
+                "reference": "883b6facd78e01c0743b554af86fa590c2573f40",
+                "shasum": ""
+            },
+            "require-dev": {
+                "nikic/php-parser": "^4",
+                "php": "^7.1",
+                "phpdocumentor/reflection-docblock": "^4.3",
+                "phpunit/phpunit": "^7"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "PhpStormStubsMap.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "description": "PHP runtime & extensions header files for PhpStorm",
+            "homepage": "https://www.jetbrains.com/phpstorm",
+            "keywords": [
+                "autocomplete",
+                "code",
+                "inference",
+                "inspection",
+                "jetbrains",
+                "phpstorm",
+                "stubs",
+                "type"
+            ],
+            "time": "2019-12-05T16:56:26+00:00"
         },
         {
             "name": "justinrainbow/json-schema",
@@ -2265,6 +2323,60 @@
                 "php"
             ],
             "time": "2020-07-02T17:12:47+00:00"
+        },
+        {
+            "name": "nikolaposa/version",
+            "version": "4.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nikolaposa/version.git",
+                "reference": "ab1aede3f84403432fe6935f7d6bfc09639d60b2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nikolaposa/version/zipball/ab1aede3f84403432fe6935f7d6bfc09639d60b2",
+                "reference": "ab1aede3f84403432fe6935f7d6bfc09639d60b2",
+                "shasum": ""
+            },
+            "require": {
+                "beberlei/assert": "^3.2",
+                "php": "^7.2"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.1",
+                "phpunit/phpunit": "^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Version\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nikola Poša",
+                    "email": "posa.nikola@gmail.com",
+                    "homepage": "https://www.nikolaposa.in.rs"
+                }
+            ],
+            "description": "Value Object that represents a SemVer-compliant version number.",
+            "homepage": "https://github.com/nikolaposa/version",
+            "keywords": [
+                "semantic",
+                "semver",
+                "version",
+                "versioning"
+            ],
+            "time": "2019-12-29T15:07:37+00:00"
         },
         {
             "name": "nunomaduro/collision",
@@ -2684,28 +2796,76 @@
             "time": "2018-07-08T19:19:57+00:00"
         },
         {
-            "name": "php-parallel-lint/php-console-highlighter",
-            "version": "v0.4",
+            "name": "php-parallel-lint/php-console-color",
+            "version": "v0.3",
             "source": {
                 "type": "git",
-                "url": "https://github.com/php-parallel-lint/PHP-Console-Highlighter.git",
-                "reference": "9f7a229a69d52506914b4bc61bfdb199d90c5547"
+                "url": "https://github.com/php-parallel-lint/PHP-Console-Color.git",
+                "reference": "b6af326b2088f1ad3b264696c9fd590ec395b49e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-parallel-lint/PHP-Console-Highlighter/zipball/9f7a229a69d52506914b4bc61bfdb199d90c5547",
-                "reference": "9f7a229a69d52506914b4bc61bfdb199d90c5547",
+                "url": "https://api.github.com/repos/php-parallel-lint/PHP-Console-Color/zipball/b6af326b2088f1ad3b264696c9fd590ec395b49e",
+                "reference": "b6af326b2088f1ad3b264696c9fd590ec395b49e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "replace": {
+                "jakub-onderka/php-console-color": "*"
+            },
+            "require-dev": {
+                "php-parallel-lint/php-code-style": "1.0",
+                "php-parallel-lint/php-parallel-lint": "1.0",
+                "php-parallel-lint/php-var-dump-check": "0.*",
+                "phpunit/phpunit": "~4.3",
+                "squizlabs/php_codesniffer": "1.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "JakubOnderka\\PhpConsoleColor\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-2-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Jakub Onderka",
+                    "email": "jakub.onderka@gmail.com"
+                }
+            ],
+            "time": "2020-05-14T05:47:14+00:00"
+        },
+        {
+            "name": "php-parallel-lint/php-console-highlighter",
+            "version": "v0.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-parallel-lint/PHP-Console-Highlighter.git",
+                "reference": "21bf002f077b177f056d8cb455c5ed573adfdbb8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-parallel-lint/PHP-Console-Highlighter/zipball/21bf002f077b177f056d8cb455c5ed573adfdbb8",
+                "reference": "21bf002f077b177f056d8cb455c5ed573adfdbb8",
                 "shasum": ""
             },
             "require": {
                 "ext-tokenizer": "*",
-                "jakub-onderka/php-console-color": "~0.2",
-                "php": ">=5.4.0"
+                "php": ">=5.4.0",
+                "php-parallel-lint/php-console-color": "~0.2"
+            },
+            "replace": {
+                "jakub-onderka/php-console-highlighter": "*"
             },
             "require-dev": {
-                "jakub-onderka/php-code-style": "~1.0",
-                "jakub-onderka/php-parallel-lint": "~1.0",
-                "jakub-onderka/php-var-dump-check": "~0.1",
+                "php-parallel-lint/php-code-style": "~1.0",
+                "php-parallel-lint/php-parallel-lint": "~1.0",
+                "php-parallel-lint/php-var-dump-check": "~0.1",
                 "phpunit/phpunit": "~4.0",
                 "squizlabs/php_codesniffer": "~1.5"
             },
@@ -2727,7 +2887,7 @@
                 }
             ],
             "description": "Highlight PHP code in terminal",
-            "time": "2018-09-29T18:48:56+00:00"
+            "time": "2020-05-13T07:37:49+00:00"
         },
         {
             "name": "php-parallel-lint/php-parallel-lint",
@@ -4002,6 +4162,172 @@
                 "timer"
             ],
             "time": "2019-03-27T18:10:32+00:00"
+        },
+        {
+            "name": "roave/backward-compatibility-check",
+            "version": "5.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Roave/BackwardCompatibilityCheck.git",
+                "reference": "15611feaa64b3b9fb8dbac3425e4d605c1f35c4f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Roave/BackwardCompatibilityCheck/zipball/15611feaa64b3b9fb8dbac3425e4d605c1f35c4f",
+                "reference": "15611feaa64b3b9fb8dbac3425e4d605c1f35c4f",
+                "shasum": ""
+            },
+            "require": {
+                "composer/composer": "^1.10.7",
+                "ext-json": "*",
+                "nikolaposa/version": "^4.0.0",
+                "ocramius/package-versions": "^1.8.0",
+                "php": "^7.4.7",
+                "roave/better-reflection": "^4.6.1",
+                "symfony/console": "^5.1.2",
+                "symfony/process": "^5.1.2",
+                "thecodingmachine/safe": "^1.1.1",
+                "webmozart/assert": "^1.9.0"
+            },
+            "require-dev": {
+                "doctrine/coding-standard": "^8.0.0",
+                "infection/infection": "^0.16.3",
+                "phpunit/phpunit": "^9.2.5",
+                "roave/security-advisories": "dev-master",
+                "squizlabs/php_codesniffer": "^3.5.5",
+                "vimeo/psalm": "^3.11.6"
+            },
+            "bin": [
+                "bin/roave-backward-compatibility-check"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Roave\\BackwardCompatibility\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "James Titcumb",
+                    "email": "james@asgrim.com"
+                },
+                {
+                    "name": "Marco Pivetta",
+                    "email": "ocramius@gmail.com"
+                }
+            ],
+            "description": "Tool to compare two revisions of a public API to check for BC breaks",
+            "time": "2020-06-22T11:14:45+00:00"
+        },
+        {
+            "name": "roave/better-reflection",
+            "version": "4.7.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Roave/BetterReflection.git",
+                "reference": "b8f8acb423e0460d39315115ee276242d2274471"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Roave/BetterReflection/zipball/b8f8acb423e0460d39315115ee276242d2274471",
+                "reference": "b8f8acb423e0460d39315115ee276242d2274471",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "jetbrains/phpstorm-stubs": "2019.3",
+                "nikic/php-parser": "^4.5.0",
+                "php": ">=7.4.1,<7.5.0",
+                "phpdocumentor/reflection-docblock": "^5.1.0",
+                "phpdocumentor/type-resolver": "^1.3.0",
+                "roave/signature": "^1.0"
+            },
+            "require-dev": {
+                "doctrine/coding-standard": "^8.0.0",
+                "infection/infection": "^0.16.4",
+                "phpstan/phpstan": "^0.12.25",
+                "phpunit/phpunit": "^9.2.5",
+                "vimeo/psalm": "3.12.1"
+            },
+            "suggest": {
+                "composer/composer": "Required to use the ComposerSourceLocator"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Roave\\BetterReflection\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "James Titcumb",
+                    "email": "james@asgrim.com",
+                    "homepage": "https://github.com/asgrim"
+                },
+                {
+                    "name": "Marco Pivetta",
+                    "email": "ocramius@gmail.com",
+                    "homepage": "https://ocramius.github.io/"
+                },
+                {
+                    "name": "Gary Hockin",
+                    "email": "gary@roave.com",
+                    "homepage": "https://github.com/geeh"
+                },
+                {
+                    "name": "Jaroslav Hanslík",
+                    "email": "kukulich@kukulich.cz",
+                    "homepage": "https://github.com/kukulich"
+                }
+            ],
+            "description": "Better Reflection - an improved code reflection API",
+            "time": "2020-07-06T10:11:25+00:00"
+        },
+        {
+            "name": "roave/signature",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Roave/Signature.git",
+                "reference": "bed4ecbdd7f312ab6bb39561ac191f520bcee386"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Roave/Signature/zipball/bed4ecbdd7f312ab6bb39561ac191f520bcee386",
+                "reference": "bed4ecbdd7f312ab6bb39561ac191f520bcee386",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.0|^7.1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.6"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Roave\\Signature\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Sign and verify stuff",
+            "time": "2017-02-17T13:53:21+00:00"
         },
         {
             "name": "sanmai/pipeline",
@@ -6433,16 +6759,16 @@
         },
         {
             "name": "wyrihaximus/async-test-utilities",
-            "version": "2.1.0",
+            "version": "2.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/WyriHaximus/php-async-test-utilities.git",
-                "reference": "753deee7209c811ba0aee66d47f3906122b0d495"
+                "reference": "3b8d14cbc19ae43650f3136a00fd36b2b183324e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/WyriHaximus/php-async-test-utilities/zipball/753deee7209c811ba0aee66d47f3906122b0d495",
-                "reference": "753deee7209c811ba0aee66d47f3906122b0d495",
+                "url": "https://api.github.com/repos/WyriHaximus/php-async-test-utilities/zipball/3b8d14cbc19ae43650f3136a00fd36b2b183324e",
+                "reference": "3b8d14cbc19ae43650f3136a00fd36b2b183324e",
                 "shasum": ""
             },
             "require": {
@@ -6451,8 +6777,7 @@
                 "phpunit/phpunit": "^9.1",
                 "react/event-loop": "^1.1",
                 "react/promise": "^2.7",
-                "wyrihaximus/coding-standard": "^1.0",
-                "wyrihaximus/test-utilities": "^2.2"
+                "wyrihaximus/test-utilities": "^2.5"
             },
             "require-dev": {
                 "wyrihaximus/iterator-or-array-to-array": "^1.1"
@@ -6480,28 +6805,28 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-04-03T18:31:35+00:00"
+            "time": "2020-07-06T00:03:17+00:00"
         },
         {
             "name": "wyrihaximus/coding-standard",
-            "version": "1.0.0",
+            "version": "2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/WyriHaximus/php-coding-standard.git",
-                "reference": "ff81979383c17c34aaf2ceaf92c8c6098d82e1ff"
+                "reference": "42644630c536b869c74ccb3021782b7ea3282c59"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/WyriHaximus/php-coding-standard/zipball/ff81979383c17c34aaf2ceaf92c8c6098d82e1ff",
-                "reference": "ff81979383c17c34aaf2ceaf92c8c6098d82e1ff",
+                "url": "https://api.github.com/repos/WyriHaximus/php-coding-standard/zipball/42644630c536b869c74ccb3021782b7ea3282c59",
+                "reference": "42644630c536b869c74ccb3021782b7ea3282c59",
                 "shasum": ""
             },
             "require": {
-                "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0",
-                "doctrine/coding-standard": "^7.0",
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.6.2",
+                "doctrine/coding-standard": "^8.0",
                 "php": "^7.4",
-                "slevomat/coding-standard": "^6.0",
-                "squizlabs/php_codesniffer": "^3.4.2"
+                "slevomat/coding-standard": "^6.3",
+                "squizlabs/php_codesniffer": "^3.5"
             },
             "type": "phpcodesniffer-standard",
             "notification-url": "https://packagist.org/downloads/",
@@ -6509,7 +6834,7 @@
                 "MIT"
             ],
             "description": "WyriHaximus Coding Standard",
-            "time": "2020-02-16T22:48:09+00:00"
+            "time": "2020-06-22T17:10:41+00:00"
         },
         {
             "name": "wyrihaximus/phpstan-rules-wrapper",
@@ -6552,16 +6877,16 @@
         },
         {
             "name": "wyrihaximus/test-utilities",
-            "version": "2.3.0",
+            "version": "2.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/WyriHaximus/php-test-utilities.git",
-                "reference": "13e2292d64c554875e972d717f519476b678554a"
+                "reference": "3ca070f048f76dbae1c7bc57277b0da6fc231e3b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/WyriHaximus/php-test-utilities/zipball/13e2292d64c554875e972d717f519476b678554a",
-                "reference": "13e2292d64c554875e972d717f519476b678554a",
+                "url": "https://api.github.com/repos/WyriHaximus/php-test-utilities/zipball/3ca070f048f76dbae1c7bc57277b0da6fc231e3b",
+                "reference": "3ca070f048f76dbae1c7bc57277b0da6fc231e3b",
                 "shasum": ""
             },
             "require": {
@@ -6572,17 +6897,18 @@
                 "maglnet/composer-require-checker": "^2.0",
                 "nunomaduro/collision": "^4.0 || ^3.0",
                 "php": "^7.4",
-                "php-parallel-lint/php-console-highlighter": "^0.4.0",
+                "php-parallel-lint/php-console-highlighter": "^0.4.0 || ^0.5",
                 "php-parallel-lint/php-parallel-lint": "^1.1",
                 "phpspec/prophecy": "^1.10",
                 "phpspec/prophecy-phpunit": "^2.0",
                 "phpstan/phpstan": "^0.12.14",
                 "phpunit/phpunit": "^9.1",
                 "psalm/plugin-phpunit": "^0.9 || ^0.10",
+                "roave/backward-compatibility-check": "^5.0",
                 "squizlabs/php_codesniffer": "^3.4.2",
                 "thecodingmachine/safe": "^1.0",
                 "vimeo/psalm": "^3.4",
-                "wyrihaximus/coding-standard": "^1.0",
+                "wyrihaximus/coding-standard": "^2.0.1",
                 "wyrihaximus/phpstan-rules-wrapper": "^1.2"
             },
             "type": "library",
@@ -6600,6 +6926,7 @@
                     "phpstan/phpstan",
                     "phpunit/phpunit",
                     "psalm/plugin-phpunit",
+                    "roave/backward-compatibility-check",
                     "slevomat/coding-standard",
                     "vimeo/psalm",
                     "wyrihaximus/phpstan-rules-wrapper"
@@ -6627,7 +6954,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-04-20T09:34:28+00:00"
+            "time": "2020-06-23T17:04:48+00:00"
         },
         {
             "name": "wyrihaximus/ticking-promise",
@@ -6688,7 +7015,7 @@
     },
     "platform-dev": [],
     "platform-overrides": {
-        "php": "7.4"
+        "php": "7.4.7"
     },
     "plugin-api-version": "1.1.0"
 }

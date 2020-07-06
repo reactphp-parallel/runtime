@@ -4,8 +4,8 @@ namespace ReactParallel\Tests\Runtime;
 
 use React\EventLoop\Factory;
 use React\Promise\ExtendedPromiseInterface;
+use ReactParallel\EventLoop\EventLoopBridge;
 use WyriHaximus\AsyncTestUtilities\AsyncTestCase;
-use ReactParallel\FutureToPromiseConverter\FutureToPromiseConverter;
 use ReactParallel\Runtime\Runtime;
 use parallel\Runtime\Error\Closed;
 use function Safe\sleep;
@@ -22,7 +22,7 @@ final class RuntimeTest extends AsyncTestCase
     public function convertSuccess(): void
     {
         $loop = Factory::create();
-        $runtime = Runtime::create(new FutureToPromiseConverter($loop));
+        $runtime = Runtime::create(new EventLoopBridge($loop));
 
         /** @var ExtendedPromiseInterface $promise */
         $promise = $runtime->run(function (): int {
@@ -32,10 +32,9 @@ final class RuntimeTest extends AsyncTestCase
         });
 
         $promise->always(function () use ($runtime): void {
-            $runtime->close();
+            $runtime->kill();
         });
 
-        $loop->run();
         $three = $this->await($promise, $loop, 3.3);
 
         self::assertSame(3, $three);
@@ -50,7 +49,7 @@ final class RuntimeTest extends AsyncTestCase
         self::expectExceptionMessage('Rethrow exception');
 
         $loop = Factory::create();
-        $runtime = Runtime::create(new FutureToPromiseConverter($loop));
+        $runtime = Runtime::create(new EventLoopBridge($loop));
 
         /** @var ExtendedPromiseInterface $promise */
         $promise = $runtime->run(function (): void {
@@ -63,7 +62,6 @@ final class RuntimeTest extends AsyncTestCase
             $runtime->close();
         });
 
-        $loop->run();
         $three = $this->await($promise, $loop, 3.3);
 
         self::assertSame(3, $three);
@@ -78,7 +76,7 @@ final class RuntimeTest extends AsyncTestCase
         self::expectExceptionMessage('Runtime closed');
 
         $loop = Factory::create();
-        $runtime = Runtime::create(new FutureToPromiseConverter($loop));
+        $runtime = Runtime::create(new EventLoopBridge($loop));
 
         /** @var ExtendedPromiseInterface $promise */
         $promise = timedPromise($loop, 1, $runtime)->then(function (Runtime $runtime) {
@@ -107,7 +105,7 @@ final class RuntimeTest extends AsyncTestCase
         self::expectExceptionMessage('Runtime closed');
 
         $loop = Factory::create();
-        $runtime = Runtime::create(new FutureToPromiseConverter($loop));
+        $runtime = Runtime::create(new EventLoopBridge($loop));
 
         /** @var ExtendedPromiseInterface $promise */
         $promise = timedPromise($loop, 1, $runtime)->then(function (Runtime $runtime) {

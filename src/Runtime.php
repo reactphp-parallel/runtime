@@ -36,7 +36,7 @@ final class Runtime
      */
     public function run(Closure $callable, array $args = []): PromiseInterface
     {
-        $future = $this->runtime->run($callable, $args);
+        $future = $this->runtime->run($callable, $args); /** @phpstan-ignore-line */
 
         if ($future instanceof Future) {
             return $this->eventLoopBridge->await($future);

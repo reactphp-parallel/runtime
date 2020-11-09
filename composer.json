@@ -18,7 +18,7 @@
         "wyrihaximus/constants": "^1.4.3"
     },
     "require-dev": {
-        "wyrihaximus/async-test-utilities": "^3.0",
+        "wyrihaximus/async-test-utilities": "^3.2",
         "wyrihaximus/ticking-promise": "^1.6"
     },
     "config": {

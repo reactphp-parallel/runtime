@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d1eed3298c77dabe2b5aee7f5996f5fe",
+    "content-hash": "febcbe333f0ce22199d9af45554c2d4f",
     "packages": [
         {
             "name": "react-parallel/event-loop",
@@ -233,20 +233,20 @@
         },
         {
             "name": "wyrihaximus/constants",
-            "version": "1.5.0",
+            "version": "1.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/WyriHaximus/php-constants.git",
-                "reference": "a2202b683261f8119f3772eb1e3469a2b5c4d9eb"
+                "reference": "32ceffdd881593c7fa24d8fcbf9deb58687484cb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/WyriHaximus/php-constants/zipball/a2202b683261f8119f3772eb1e3469a2b5c4d9eb",
-                "reference": "a2202b683261f8119f3772eb1e3469a2b5c4d9eb",
+                "url": "https://api.github.com/repos/WyriHaximus/php-constants/zipball/32ceffdd881593c7fa24d8fcbf9deb58687484cb",
+                "reference": "32ceffdd881593c7fa24d8fcbf9deb58687484cb",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.0 || ^5.3"
+                "php": "^8 || ^7 || ^5.3"
             },
             "type": "library",
             "autoload": {
@@ -271,9 +271,74 @@
             "description": "Collection of constants for PHP",
             "support": {
                 "issues": "https://github.com/WyriHaximus/php-constants/issues",
-                "source": "https://github.com/WyriHaximus/php-constants/tree/master"
+                "source": "https://github.com/WyriHaximus/php-constants/tree/1.6.0"
             },
-            "time": "2020-04-02T21:00:04+00:00"
+            "funding": [
+                {
+                    "url": "https://github.com/WyriHaximus",
+                    "type": "github"
+                }
+            ],
+            "time": "2020-11-28T12:04:43+00:00"
+        },
+        {
+            "name": "wyrihaximus/parallel-runtime",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/WyriHaximus/php-parallel-runtime.git",
+                "reference": "c6c5dd8a957769ccf5834d896360a6391bd9ab33"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/WyriHaximus/php-parallel-runtime/zipball/c6c5dd8a957769ccf5834d896360a6391bd9ab33",
+                "reference": "c6c5dd8a957769ccf5834d896360a6391bd9ab33",
+                "shasum": ""
+            },
+            "require": {
+                "ext-parallel": "^1",
+                "ext-pcntl": "^7.4",
+                "php": "^7.4",
+                "wyrihaximus/constants": "^1.6"
+            },
+            "require-dev": {
+                "thecodingmachine/safe": "^1.3",
+                "wyrihaximus/async-test-utilities": "^3.3"
+            },
+            "type": "library",
+            "extra": {
+                "unused": [
+                    "php",
+                    "ext-parallel"
+                ]
+            },
+            "autoload": {
+                "psr-4": {
+                    "WyriHaximus\\Parallel\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Cees-Jan Kiewiet",
+                    "email": "ceesjank@gmail.com"
+                }
+            ],
+            "description": "🎁 ext-parallel runtime wrapping adding error, signal, and exception handling",
+            "support": {
+                "issues": "https://github.com/WyriHaximus/php-parallel-runtime/issues",
+                "source": "https://github.com/WyriHaximus/php-parallel-runtime/tree/1.0.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/WyriHaximus",
+                    "type": "github"
+                }
+            ],
+            "time": "2020-12-05T23:09:38+00:00"
         }
     ],
     "packages-dev": [

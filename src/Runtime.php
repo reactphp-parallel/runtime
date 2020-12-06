@@ -6,11 +6,12 @@ namespace ReactParallel\Runtime;
 
 use Closure;
 use parallel\Future;
-use parallel\Runtime as ParallelRuntime;
 use React\Promise\PromiseInterface;
 use ReactParallel\EventLoop\EventLoopBridge;
+use WyriHaximus\Parallel\Runtime as ParallelRuntime;
 
 use function React\Promise\resolve;
+use function var_export;
 
 use const WyriHaximus\Constants\ComposerAutoloader\LOCATION;
 
@@ -36,9 +37,11 @@ final class Runtime
      */
     public function run(Closure $callable, array $args = []): PromiseInterface
     {
-        $future = $this->runtime->run($callable, $args); /** @phpstan-ignore-line */
+        $future = $this->runtime->run($callable, $args);
+        var_export($future);
 
         if ($future instanceof Future) {
+            /** @psalm-suppress MissingClosureReturnType */
             return $this->eventLoopBridge->await($future);
         }
 

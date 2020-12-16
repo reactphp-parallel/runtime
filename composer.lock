@@ -7,17 +7,78 @@
     "content-hash": "d1eed3298c77dabe2b5aee7f5996f5fe",
     "packages": [
         {
-            "name": "react-parallel/event-loop",
-            "version": "1.0.1",
+            "name": "lcobucci/clock",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/reactphp-parallel/event-loop.git",
-                "reference": "5070e4eb25393d8ada563639b0a1a515f824eb54"
+                "url": "https://github.com/lcobucci/clock.git",
+                "reference": "353d83fe2e6ae95745b16b3d911813df6a05bfb3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/reactphp-parallel/event-loop/zipball/5070e4eb25393d8ada563639b0a1a515f824eb54",
-                "reference": "5070e4eb25393d8ada563639b0a1a515f824eb54",
+                "url": "https://api.github.com/repos/lcobucci/clock/zipball/353d83fe2e6ae95745b16b3d911813df6a05bfb3",
+                "reference": "353d83fe2e6ae95745b16b3d911813df6a05bfb3",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.4 || ^8.0"
+            },
+            "require-dev": {
+                "infection/infection": "^0.17",
+                "lcobucci/coding-standard": "^6.0",
+                "phpstan/extension-installer": "^1.0",
+                "phpstan/phpstan": "^0.12",
+                "phpstan/phpstan-deprecation-rules": "^0.12",
+                "phpstan/phpstan-phpunit": "^0.12",
+                "phpstan/phpstan-strict-rules": "^0.12",
+                "phpunit/php-code-coverage": "9.1.4",
+                "phpunit/phpunit": "9.3.7"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Lcobucci\\Clock\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Luís Cobucci",
+                    "email": "lcobucci@gmail.com"
+                }
+            ],
+            "description": "Yet another clock abstraction",
+            "support": {
+                "issues": "https://github.com/lcobucci/clock/issues",
+                "source": "https://github.com/lcobucci/clock/tree/2.0.x"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/lcobucci",
+                    "type": "github"
+                },
+                {
+                    "url": "https://www.patreon.com/lcobucci",
+                    "type": "patreon"
+                }
+            ],
+            "time": "2020-08-27T18:56:02+00:00"
+        },
+        {
+            "name": "react-parallel/event-loop",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/reactphp-parallel/event-loop.git",
+                "reference": "e859517ed6ef556ca6006ebff13899ed4e78bb93"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/reactphp-parallel/event-loop/zipball/e859517ed6ef556ca6006ebff13899ed4e78bb93",
+                "reference": "e859517ed6ef556ca6006ebff13899ed4e78bb93",
                 "shasum": ""
             },
             "require": {
@@ -26,10 +87,11 @@
                 "react/event-loop": "^1.1",
                 "react/promise": "^2.7",
                 "reactivex/rxphp": "^2.0",
-                "wyrihaximus/constants": "^1.4.3"
+                "wyrihaximus/constants": "^1.4.3",
+                "wyrihaximus/metrics": "^1.0"
             },
             "require-dev": {
-                "wyrihaximus/async-test-utilities": "^2.2"
+                "wyrihaximus/async-test-utilities": "^3.2"
             },
             "type": "library",
             "extra": {
@@ -53,10 +115,10 @@
                     "homepage": "http://wyrihaximus.net/"
                 }
             ],
-            "description": "🌀🌀 Event Loop bridge to ext-parallel Events",
+            "description": "🌀🌉🌀 Event Loop bridge to ext-parallel Events",
             "support": {
                 "issues": "https://github.com/reactphp-parallel/event-loop/issues",
-                "source": "https://github.com/reactphp-parallel/event-loop/tree/master"
+                "source": "https://github.com/reactphp-parallel/event-loop/tree/1.1.0"
             },
             "funding": [
                 {
@@ -64,7 +126,63 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-07-07T16:41:12+00:00"
+            "time": "2020-11-17T20:50:24+00:00"
+        },
+        {
+            "name": "react-parallel/object-proxy-attributes",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/reactphp-parallel/object-proxy-attributes.git",
+                "reference": "dd73ba13b3f36fb2d7c2bd8eecee2d774d0109d0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/reactphp-parallel/object-proxy-attributes/zipball/dd73ba13b3f36fb2d7c2bd8eecee2d774d0109d0",
+                "reference": "dd73ba13b3f36fb2d7c2bd8eecee2d774d0109d0",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.4"
+            },
+            "require-dev": {
+                "doctrine/annotations": "^1.11",
+                "wyrihaximus/test-utilities": "^2.9"
+            },
+            "type": "library",
+            "extra": {
+                "unused": [
+                    "php"
+                ]
+            },
+            "autoload": {
+                "psr-4": {
+                    "ReactParallel\\ObjectProxy\\Attribute\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Cees-Jan Kiewiet",
+                    "email": "ceesjank@gmail.com",
+                    "homepage": "http://wyrihaximus.net/"
+                }
+            ],
+            "description": "👨‍🚀🛰👩‍🚀 Attributes for react-parallel/object-proxy",
+            "support": {
+                "issues": "https://github.com/reactphp-parallel/object-proxy-attributes/issues",
+                "source": "https://github.com/reactphp-parallel/object-proxy-attributes/tree/1.0.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/WyriHaximus",
+                    "type": "github"
+                }
+            ],
+            "time": "2020-10-31T14:14:06+00:00"
         },
         {
             "name": "react/event-loop",
@@ -164,25 +282,24 @@
         },
         {
             "name": "reactivex/rxphp",
-            "version": "2.0.7",
+            "version": "2.0.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ReactiveX/RxPHP.git",
-                "reference": "fd74a0cd2b5edd4a48e4ff12aaa44cc6cdc4a9b4"
+                "reference": "851913a522b4955bd783d2193d7af6bda422e25d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ReactiveX/RxPHP/zipball/fd74a0cd2b5edd4a48e4ff12aaa44cc6cdc4a9b4",
-                "reference": "fd74a0cd2b5edd4a48e4ff12aaa44cc6cdc4a9b4",
+                "url": "https://api.github.com/repos/ReactiveX/RxPHP/zipball/851913a522b4955bd783d2193d7af6bda422e25d",
+                "reference": "851913a522b4955bd783d2193d7af6bda422e25d",
                 "shasum": ""
             },
             "require": {
-                "php": "~7.0",
+                "php": ">=7.0.0",
                 "react/promise": "~2.2"
             },
             "require-dev": {
-                "phpunit/phpcov": "^3.1",
-                "phpunit/phpunit": "^5.7",
+                "phpunit/phpunit": "^8.5 || ^9",
                 "react/event-loop": "^1.0 || ^0.5 || ^0.4.2",
                 "satooshi/php-coveralls": "~1.0"
             },
@@ -227,26 +344,165 @@
             ],
             "support": {
                 "issues": "https://github.com/ReactiveX/RxPHP/issues",
-                "source": "https://github.com/ReactiveX/RxPHP/tree/master"
+                "source": "https://github.com/ReactiveX/RxPHP/tree/2.0.8"
             },
-            "time": "2018-04-18T01:34:36+00:00"
+            "time": "2020-12-13T02:20:25+00:00"
         },
         {
-            "name": "wyrihaximus/constants",
-            "version": "1.5.0",
+            "name": "thecodingmachine/safe",
+            "version": "v1.3.3",
             "source": {
                 "type": "git",
-                "url": "https://github.com/WyriHaximus/php-constants.git",
-                "reference": "a2202b683261f8119f3772eb1e3469a2b5c4d9eb"
+                "url": "https://github.com/thecodingmachine/safe.git",
+                "reference": "a8ab0876305a4cdaef31b2350fcb9811b5608dbc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/WyriHaximus/php-constants/zipball/a2202b683261f8119f3772eb1e3469a2b5c4d9eb",
-                "reference": "a2202b683261f8119f3772eb1e3469a2b5c4d9eb",
+                "url": "https://api.github.com/repos/thecodingmachine/safe/zipball/a8ab0876305a4cdaef31b2350fcb9811b5608dbc",
+                "reference": "a8ab0876305a4cdaef31b2350fcb9811b5608dbc",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.0 || ^5.3"
+                "php": ">=7.2"
+            },
+            "require-dev": {
+                "phpstan/phpstan": "^0.12",
+                "squizlabs/php_codesniffer": "^3.2",
+                "thecodingmachine/phpstan-strict-rules": "^0.12"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Safe\\": [
+                        "lib/",
+                        "deprecated/",
+                        "generated/"
+                    ]
+                },
+                "files": [
+                    "deprecated/apc.php",
+                    "deprecated/libevent.php",
+                    "deprecated/mssql.php",
+                    "deprecated/stats.php",
+                    "lib/special_cases.php",
+                    "generated/apache.php",
+                    "generated/apcu.php",
+                    "generated/array.php",
+                    "generated/bzip2.php",
+                    "generated/calendar.php",
+                    "generated/classobj.php",
+                    "generated/com.php",
+                    "generated/cubrid.php",
+                    "generated/curl.php",
+                    "generated/datetime.php",
+                    "generated/dir.php",
+                    "generated/eio.php",
+                    "generated/errorfunc.php",
+                    "generated/exec.php",
+                    "generated/fileinfo.php",
+                    "generated/filesystem.php",
+                    "generated/filter.php",
+                    "generated/fpm.php",
+                    "generated/ftp.php",
+                    "generated/funchand.php",
+                    "generated/gmp.php",
+                    "generated/gnupg.php",
+                    "generated/hash.php",
+                    "generated/ibase.php",
+                    "generated/ibmDb2.php",
+                    "generated/iconv.php",
+                    "generated/image.php",
+                    "generated/imap.php",
+                    "generated/info.php",
+                    "generated/ingres-ii.php",
+                    "generated/inotify.php",
+                    "generated/json.php",
+                    "generated/ldap.php",
+                    "generated/libxml.php",
+                    "generated/lzf.php",
+                    "generated/mailparse.php",
+                    "generated/mbstring.php",
+                    "generated/misc.php",
+                    "generated/msql.php",
+                    "generated/mysql.php",
+                    "generated/mysqli.php",
+                    "generated/mysqlndMs.php",
+                    "generated/mysqlndQc.php",
+                    "generated/network.php",
+                    "generated/oci8.php",
+                    "generated/opcache.php",
+                    "generated/openssl.php",
+                    "generated/outcontrol.php",
+                    "generated/password.php",
+                    "generated/pcntl.php",
+                    "generated/pcre.php",
+                    "generated/pdf.php",
+                    "generated/pgsql.php",
+                    "generated/posix.php",
+                    "generated/ps.php",
+                    "generated/pspell.php",
+                    "generated/readline.php",
+                    "generated/rpminfo.php",
+                    "generated/rrd.php",
+                    "generated/sem.php",
+                    "generated/session.php",
+                    "generated/shmop.php",
+                    "generated/simplexml.php",
+                    "generated/sockets.php",
+                    "generated/sodium.php",
+                    "generated/solr.php",
+                    "generated/spl.php",
+                    "generated/sqlsrv.php",
+                    "generated/ssdeep.php",
+                    "generated/ssh2.php",
+                    "generated/stream.php",
+                    "generated/strings.php",
+                    "generated/swoole.php",
+                    "generated/uodbc.php",
+                    "generated/uopz.php",
+                    "generated/url.php",
+                    "generated/var.php",
+                    "generated/xdiff.php",
+                    "generated/xml.php",
+                    "generated/xmlrpc.php",
+                    "generated/yaml.php",
+                    "generated/yaz.php",
+                    "generated/zip.php",
+                    "generated/zlib.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "PHP core functions that throw exceptions instead of returning FALSE on error",
+            "support": {
+                "issues": "https://github.com/thecodingmachine/safe/issues",
+                "source": "https://github.com/thecodingmachine/safe/tree/v1.3.3"
+            },
+            "time": "2020-10-28T17:51:34+00:00"
+        },
+        {
+            "name": "wyrihaximus/constants",
+            "version": "1.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/WyriHaximus/php-constants.git",
+                "reference": "32ceffdd881593c7fa24d8fcbf9deb58687484cb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/WyriHaximus/php-constants/zipball/32ceffdd881593c7fa24d8fcbf9deb58687484cb",
+                "reference": "32ceffdd881593c7fa24d8fcbf9deb58687484cb",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8 || ^7 || ^5.3"
             },
             "type": "library",
             "autoload": {
@@ -271,9 +527,69 @@
             "description": "Collection of constants for PHP",
             "support": {
                 "issues": "https://github.com/WyriHaximus/php-constants/issues",
-                "source": "https://github.com/WyriHaximus/php-constants/tree/master"
+                "source": "https://github.com/WyriHaximus/php-constants/tree/1.6.0"
             },
-            "time": "2020-04-02T21:00:04+00:00"
+            "funding": [
+                {
+                    "url": "https://github.com/WyriHaximus",
+                    "type": "github"
+                }
+            ],
+            "time": "2020-11-28T12:04:43+00:00"
+        },
+        {
+            "name": "wyrihaximus/metrics",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/WyriHaximus/php-metrics.git",
+                "reference": "cdf8ee62b5fa6b253ec8823070ea112671757f9a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/WyriHaximus/php-metrics/zipball/cdf8ee62b5fa6b253ec8823070ea112671757f9a",
+                "reference": "cdf8ee62b5fa6b253ec8823070ea112671757f9a",
+                "shasum": ""
+            },
+            "require": {
+                "lcobucci/clock": "^2.0",
+                "php": "^7.4",
+                "react-parallel/object-proxy-attributes": "^1",
+                "thecodingmachine/safe": "^1.1",
+                "wyrihaximus/constants": "^1.5"
+            },
+            "require-dev": {
+                "phpbench/phpbench": "^0.17.1",
+                "wyrihaximus/test-utilities": "^2.5 || ^3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "WyriHaximus\\Metrics\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Cees-Jan Kiewiet",
+                    "email": "ceesjank@gmail.com"
+                }
+            ],
+            "description": "🕵️‍♀️ Prometheus modelled metric VO's and registry",
+            "support": {
+                "issues": "https://github.com/WyriHaximus/php-metrics/issues",
+                "source": "https://github.com/WyriHaximus/php-metrics/tree/1.0.2"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/WyriHaximus",
+                    "type": "github"
+                }
+            ],
+            "time": "2020-11-17T22:53:16+00:00"
         }
     ],
     "packages-dev": [
@@ -7741,145 +8057,6 @@
                 "source": "https://github.com/thecodingmachine/phpstan-strict-rules/tree/master"
             },
             "time": "2020-09-08T09:14:10+00:00"
-        },
-        {
-            "name": "thecodingmachine/safe",
-            "version": "v1.3.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/thecodingmachine/safe.git",
-                "reference": "a8ab0876305a4cdaef31b2350fcb9811b5608dbc"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/thecodingmachine/safe/zipball/a8ab0876305a4cdaef31b2350fcb9811b5608dbc",
-                "reference": "a8ab0876305a4cdaef31b2350fcb9811b5608dbc",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=7.2"
-            },
-            "require-dev": {
-                "phpstan/phpstan": "^0.12",
-                "squizlabs/php_codesniffer": "^3.2",
-                "thecodingmachine/phpstan-strict-rules": "^0.12"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "0.1-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Safe\\": [
-                        "lib/",
-                        "deprecated/",
-                        "generated/"
-                    ]
-                },
-                "files": [
-                    "deprecated/apc.php",
-                    "deprecated/libevent.php",
-                    "deprecated/mssql.php",
-                    "deprecated/stats.php",
-                    "lib/special_cases.php",
-                    "generated/apache.php",
-                    "generated/apcu.php",
-                    "generated/array.php",
-                    "generated/bzip2.php",
-                    "generated/calendar.php",
-                    "generated/classobj.php",
-                    "generated/com.php",
-                    "generated/cubrid.php",
-                    "generated/curl.php",
-                    "generated/datetime.php",
-                    "generated/dir.php",
-                    "generated/eio.php",
-                    "generated/errorfunc.php",
-                    "generated/exec.php",
-                    "generated/fileinfo.php",
-                    "generated/filesystem.php",
-                    "generated/filter.php",
-                    "generated/fpm.php",
-                    "generated/ftp.php",
-                    "generated/funchand.php",
-                    "generated/gmp.php",
-                    "generated/gnupg.php",
-                    "generated/hash.php",
-                    "generated/ibase.php",
-                    "generated/ibmDb2.php",
-                    "generated/iconv.php",
-                    "generated/image.php",
-                    "generated/imap.php",
-                    "generated/info.php",
-                    "generated/ingres-ii.php",
-                    "generated/inotify.php",
-                    "generated/json.php",
-                    "generated/ldap.php",
-                    "generated/libxml.php",
-                    "generated/lzf.php",
-                    "generated/mailparse.php",
-                    "generated/mbstring.php",
-                    "generated/misc.php",
-                    "generated/msql.php",
-                    "generated/mysql.php",
-                    "generated/mysqli.php",
-                    "generated/mysqlndMs.php",
-                    "generated/mysqlndQc.php",
-                    "generated/network.php",
-                    "generated/oci8.php",
-                    "generated/opcache.php",
-                    "generated/openssl.php",
-                    "generated/outcontrol.php",
-                    "generated/password.php",
-                    "generated/pcntl.php",
-                    "generated/pcre.php",
-                    "generated/pdf.php",
-                    "generated/pgsql.php",
-                    "generated/posix.php",
-                    "generated/ps.php",
-                    "generated/pspell.php",
-                    "generated/readline.php",
-                    "generated/rpminfo.php",
-                    "generated/rrd.php",
-                    "generated/sem.php",
-                    "generated/session.php",
-                    "generated/shmop.php",
-                    "generated/simplexml.php",
-                    "generated/sockets.php",
-                    "generated/sodium.php",
-                    "generated/solr.php",
-                    "generated/spl.php",
-                    "generated/sqlsrv.php",
-                    "generated/ssdeep.php",
-                    "generated/ssh2.php",
-                    "generated/stream.php",
-                    "generated/strings.php",
-                    "generated/swoole.php",
-                    "generated/uodbc.php",
-                    "generated/uopz.php",
-                    "generated/url.php",
-                    "generated/var.php",
-                    "generated/xdiff.php",
-                    "generated/xml.php",
-                    "generated/xmlrpc.php",
-                    "generated/yaml.php",
-                    "generated/yaz.php",
-                    "generated/zip.php",
-                    "generated/zlib.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "PHP core functions that throw exceptions instead of returning FALSE on error",
-            "support": {
-                "issues": "https://github.com/thecodingmachine/safe/issues",
-                "source": "https://github.com/thecodingmachine/safe/tree/v1.3.3"
-            },
-            "time": "2020-10-28T17:51:34+00:00"
         },
         {
             "name": "theseer/tokenizer",

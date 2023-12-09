@@ -18,28 +18,23 @@ final class Runtime
 {
     private ParallelRuntime $runtime;
 
-    private EventLoopBridge $eventLoopBridge;
-
     public static function create(EventLoopBridge $eventLoopBridge): self
     {
         return new self($eventLoopBridge, LOCATION);
     }
 
-    public function __construct(EventLoopBridge $eventLoopBridge, string $autoload)
+    public function __construct(private EventLoopBridge $eventLoopBridge, string $autoload)
     {
-        $this->eventLoopBridge = $eventLoopBridge;
-        $this->runtime         = new ParallelRuntime($autoload);
+        $this->runtime = new ParallelRuntime($autoload);
     }
 
-    /**
-     * @param  array<int, mixed> $args
-     */
+    /** @param  array<int, mixed> $args */
     public function run(Closure $callable, array $args = []): PromiseInterface
     {
-        $future = $this->runtime->run($callable, $args); /** @phpstan-ignore-line */
+        $future = $this->runtime->run($callable, $args);
 
         if ($future instanceof Future) {
-            return $this->eventLoopBridge->await($future);
+            return resolve($this->eventLoopBridge->await($future));
         }
 
         return resolve($future);

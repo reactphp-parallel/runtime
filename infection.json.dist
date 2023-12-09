@@ -6,14 +6,15 @@
         ]
     },
     "logs": {
-        "text": "infection.log"
+        "text": "./var/infection.log",
+        "summary": "./var/infection-summary.log",
+        "json": "./var/infection.json",
+        "perMutator": "./var/infection-per-mutator.md"
     },
     "mutators": {
-        "@default": true,
-        "InstanceOf_": {
-            "ignore": [
-                "ReactParallel\\Runtime\\Runtime::run"
-            ]
-        }
+        "@default": true
+    },
+    "phpUnit": {
+        "configDir": "./etc/qa/"
     }
 }

@@ -6,18 +6,15 @@ namespace ReactParallel\Tests\Runtime;
 
 use parallel\Runtime\Error\Closed;
 use React\EventLoop\Loop;
-use React\Promise\ExtendedPromiseInterface;
 use ReactParallel\EventLoop\EventLoopBridge;
 use ReactParallel\Runtime\Runtime;
 use TheOrville\Exceptions\LatchcombException;
 use WyriHaximus\AsyncTestUtilities\AsyncTestCase;
 
-use function assert;
 use function React\Async\await;
 use function sleep;
 use function WyriHaximus\React\timedPromise;
 
-/** @internal */
 final class RuntimeTest extends AsyncTestCase
 {
     /** @test */
@@ -30,7 +27,6 @@ final class RuntimeTest extends AsyncTestCase
 
             return 3;
         });
-        assert($promise instanceof ExtendedPromiseInterface);
 
         $promise->always(static function () use ($runtime): void {
             $runtime->kill();
@@ -54,7 +50,6 @@ final class RuntimeTest extends AsyncTestCase
 
             throw new LatchcombException('Rethrow exception');
         });
-        assert($promise instanceof ExtendedPromiseInterface);
 
         $promise->always(static function () use ($runtime): void {
             $runtime->close();
@@ -78,7 +73,6 @@ final class RuntimeTest extends AsyncTestCase
                 return 3;
             });
         });
-        assert($promise instanceof ExtendedPromiseInterface);
 
         Loop::futureTick(static function () use ($runtime): void {
             $runtime->close();
@@ -100,7 +94,6 @@ final class RuntimeTest extends AsyncTestCase
                 return 3;
             });
         });
-        assert($promise instanceof ExtendedPromiseInterface);
 
         Loop::futureTick(static function () use ($runtime): void {
             $runtime->kill();

@@ -7,10 +7,7 @@ namespace ReactParallel\Runtime;
 use Closure;
 use parallel\Future;
 use parallel\Runtime as ParallelRuntime;
-use React\Promise\PromiseInterface;
 use ReactParallel\EventLoop\EventLoopBridge;
-
-use function React\Promise\resolve;
 
 use const WyriHaximus\Constants\ComposerAutoloader\LOCATION;
 
@@ -28,16 +25,23 @@ final class Runtime
         $this->runtime = new ParallelRuntime($autoload);
     }
 
-    /** @param  array<int, mixed> $args */
-    public function run(Closure $callable, array $args = []): PromiseInterface
+    /**
+     * @param (Closure():?T)    $callable
+     * @param  array<int, mixed> $args
+     *
+     * @return ?T
+     *
+     * @template T
+     */
+    public function run(Closure $callable, array $args = []): mixed
     {
         $future = $this->runtime->run($callable, $args);
 
         if ($future instanceof Future) {
-            return resolve($this->eventLoopBridge->await($future));
+            return $this->eventLoopBridge->await($future);
         }
 
-        return resolve($future);
+        return $future;
     }
 
     public function close(): void

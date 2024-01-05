@@ -22,17 +22,15 @@ final class RuntimeTest extends AsyncTestCase
     {
         $runtime = Runtime::create(new EventLoopBridge());
 
-        $promise = $runtime->run(static function (): int {
-            sleep(3);
+        try {
+            $three = $runtime->run(static function (): int {
+                sleep(3);
 
-            return 3;
-        });
-
-        $promise->always(static function () use ($runtime): void {
+                return 3;
+            });
+        } finally {
             $runtime->kill();
-        });
-
-        $three = await($promise); /** @phpstan-ignore-line */
+        }
 
         self::assertSame(3, $three);
     }
@@ -45,19 +43,17 @@ final class RuntimeTest extends AsyncTestCase
 
         $runtime = Runtime::create(new EventLoopBridge());
 
-        $promise = $runtime->run(static function (): void {
-            sleep(3);
+        try {
+            $three = $runtime->run(static function (): void {
+                sleep(3);
 
-            throw new LatchcombException('Rethrow exception');
-        });
-
-        $promise->always(static function () use ($runtime): void {
+                throw new LatchcombException('Rethrow exception');
+            });
+        } finally {
             $runtime->close();
-        });
+        }
 
-        $three = await($promise); /** @phpstan-ignore-line */
-
-        self::assertSame(3, $three);
+//        self::assertSame(3, $three);
     }
 
     /** @test */
@@ -78,7 +74,7 @@ final class RuntimeTest extends AsyncTestCase
             $runtime->close();
         });
 
-        await($promise); /** @phpstan-ignore-line */
+        await($promise);
     }
 
     /** @test */
@@ -99,6 +95,6 @@ final class RuntimeTest extends AsyncTestCase
             $runtime->kill();
         });
 
-        await($promise); /** @phpstan-ignore-line */
+        await($promise);
     }
 }

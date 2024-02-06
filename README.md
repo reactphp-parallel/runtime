@@ -18,22 +18,16 @@ composer require react-parallel/runtime
 # Usage
 
 ```php
-use React\EventLoop\Factory;
 use ReactParallel\Runtime\Runtime;
-use ReactParallel\FutureToPromiseConverter\FutureToPromiseConverter;
+use ReactParallel\EventLoop\EventLoopBridge;
 
-$loop = Factory::create();
-$runtime = Runtime::create(new FutureToPromiseConverter($loop));
+$runtime = Runtime::create(new EventLoopBridge());
 
-$runtime->run(function () {
+echo $runtime->run(function (): int {
     sleep(3);
 
     return 3;
-})->done(function (int $int): void {
-    echo $int, PHP_EOL;
-});
-
-$loop->run();
+}), PHP_EOL;
 ```
 
 ## Contributing ##

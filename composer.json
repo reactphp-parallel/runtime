@@ -10,16 +10,15 @@
         }
     ],
     "require": {
-        "php": "^8.2",
+        "php": "^8.1",
         "ext-parallel": "*",
         "react-parallel/event-loop": "^2@dev",
         "react/event-loop": "^1.5",
-        "react/promise": "^3.1",
+        "react/promise": "^2.9 || ^3.1",
         "wyrihaximus/constants": "^1.6"
     },
     "require-dev": {
-        "the-orville/exceptions": "^1.0",
-        "wyrihaximus/async-test-utilities": "^7.2",
+        "wyrihaximus/async-test-utilities": "^5 || ^7.2",
         "wyrihaximus/ticking-promise": "^3"
     },
     "autoload": {
@@ -30,7 +29,10 @@
     "autoload-dev": {
         "psr-4": {
             "ReactParallel\\Tests\\Runtime\\": "tests/"
-        }
+        },
+        "files": [
+            "tests/LatchcombException.php"
+        ]
     },
     "config": {
         "allow-plugins": {
@@ -40,7 +42,7 @@
             "infection/extension-installer": true
         },
         "platform": {
-            "php": "8.2.13"
+            "php": "8.1.13"
         },
         "sort-packages": true
     },

@@ -12,12 +12,13 @@
     "require": {
         "php": "^8.1",
         "ext-parallel": "*",
-        "react-parallel/event-loop": "^2@dev",
+        "react-parallel/event-loop": "^2.0.0",
         "react/event-loop": "^1.5",
-        "react/promise": "^2.9 || ^3.1",
+        "react/promise": "^2.9 || ^3.2",
         "wyrihaximus/constants": "^1.6"
     },
     "require-dev": {
+        "react-parallel/stubs": "^1.2",
         "wyrihaximus/async-test-utilities": "^5 || ^7.2",
         "wyrihaximus/ticking-promise": "^3"
     },

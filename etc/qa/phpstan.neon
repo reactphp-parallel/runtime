@@ -1,5 +1,9 @@
 parameters:
 	level: max
+	ignoreErrors:
+		-
+			message: '#Result of method ReactParallel\\Runtime\\Runtime::run\(\) \(void\) is used.#'
+			path: ../../tests/Types.php
 	ergebnis:
 		noExtends:
 			classesAllowedToBeExtended:

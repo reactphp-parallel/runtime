@@ -26,10 +26,10 @@ final class Runtime
     }
 
     /**
-     * @param (Closure():?T)    $callable
+     * @param (Closure():T)|(Closure():void)    $callable
      * @param  array<int, mixed> $args
      *
-     * @return ?T
+     * @return ($callable is (Closure():T) ? T : null)
      *
      * @template T
      */

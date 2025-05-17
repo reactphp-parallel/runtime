@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace ReactParallel\Tests\Runtime;
 
 use parallel\Runtime\Error\Closed;
+use PHPUnit\Framework\Attributes\Test;
 use React\EventLoop\Loop;
 use React\Promise\PromiseInterface;
 use ReactParallel\EventLoop\EventLoopBridge;
@@ -18,7 +19,7 @@ use function WyriHaximus\React\timedPromise;
 
 final class RuntimeTest extends AsyncTestCase
 {
-    /** @test */
+    #[Test]
     public function convertSuccess(): void
     {
         $sleep   = 3;
@@ -37,7 +38,7 @@ final class RuntimeTest extends AsyncTestCase
         self::assertSame($sleep, $result);
     }
 
-    /** @test */
+    #[Test]
     public function convertFailure(): void
     {
         self::expectException(LatchcombException::class);
@@ -46,7 +47,7 @@ final class RuntimeTest extends AsyncTestCase
         $runtime = Runtime::create(new EventLoopBridge());
 
         try {
-            $three = $runtime->run(static function (): void {
+            $three = $runtime->run(static function (): never {
                 sleep(3);
 
                 throw new LatchcombException('Rethrow exception');
@@ -56,7 +57,7 @@ final class RuntimeTest extends AsyncTestCase
         }
     }
 
-    /** @test */
+    #[Test]
     public function weClosedTheThread(): void
     {
         self::expectException(Closed::class);
@@ -65,11 +66,7 @@ final class RuntimeTest extends AsyncTestCase
         $runtime = Runtime::create(new EventLoopBridge());
 
         /** @var PromiseInterface<int> $promise */
-        $promise = timedPromise(1, $runtime)->then(static function (Runtime $runtime) {
-            return $runtime->run(static function (): int {
-                return 3;
-            });
-        });
+        $promise = timedPromise(1, $runtime)->then(static fn (Runtime $runtime) => $runtime->run(static fn (): int => 3));
 
         Loop::futureTick(static function () use ($runtime): void {
             $runtime->close();
@@ -78,7 +75,7 @@ final class RuntimeTest extends AsyncTestCase
         await($promise);
     }
 
-    /** @test */
+    #[Test]
     public function weKilledTheThread(): void
     {
         self::expectException(Closed::class);
@@ -87,11 +84,7 @@ final class RuntimeTest extends AsyncTestCase
         $runtime = Runtime::create(new EventLoopBridge());
 
         /** @var PromiseInterface<int> $promise */
-        $promise = timedPromise(1, $runtime)->then(static function (Runtime $runtime) {
-            return $runtime->run(static function (): int {
-                return 3;
-            });
-        });
+        $promise = timedPromise(1, $runtime)->then(static fn (Runtime $runtime) => $runtime->run(static fn (): int => 3));
 
         Loop::futureTick(static function () use ($runtime): void {
             $runtime->kill();

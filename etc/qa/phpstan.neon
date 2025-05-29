@@ -2,7 +2,14 @@ parameters:
 	level: max
 	ignoreErrors:
 		-
+			identifier: shipmonk.nonNormalizedType
+			path: ../../src/Runtime.php
+			count: 10
+		-
 			message: '#sleep blocks the event loop#'
+			path: ../../tests/RuntimeTest.php
+		-
+			identifier: shipmonk.checkedExceptionInCallable
 			path: ../../tests/RuntimeTest.php
 		-
 			message: '#Call to static method PHPUnit\\Framework\\Assert::assertSame\(\) with 3 and 3 will always evaluate to true.#'
@@ -10,13 +17,13 @@ parameters:
 		-
 			message: '#sleep blocks the event loop#'
 			path: ../../tests/Types.php
+		-
+			identifier: shipmonk.checkedExceptionInCallable
+			path: ../../tests/Types.php
+			count: 3
 	ergebnis:
 		noExtends:
 			classesAllowedToBeExtended:
 				- ReactParallel\EventLoop\CancelledException
 				- ReactParallel\EventLoop\CanceledFuture
 				- ReactParallel\EventLoop\KilledRuntime
-
-includes:
-	- ../../vendor/wyrihaximus/async-test-utilities/rules.neon
-	- ../../vendor/react-parallel/stubs/extension.neon

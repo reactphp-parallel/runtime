@@ -11,7 +11,7 @@ use ReactParallel\EventLoop\EventLoopBridge;
 
 use const WyriHaximus\Constants\ComposerAutoloader\LOCATION;
 
-final class Runtime
+final readonly class Runtime
 {
     private ParallelRuntime $runtime;
 

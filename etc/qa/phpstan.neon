@@ -12,6 +12,7 @@ parameters:
 	ergebnis:
 		noExtends:
 			classesAllowedToBeExtended:
+				- Exception
 				- ReactParallel\EventLoop\CancelledException
 				- ReactParallel\EventLoop\CanceledFuture
 				- ReactParallel\EventLoop\KilledRuntime

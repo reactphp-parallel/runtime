@@ -10,10 +10,12 @@ use function PHPStan\Testing\assertType;
 $runtime = Runtime::create(new EventLoopBridge());
 
 assertType('Closure(): void', (static fn () => $runtime->run(static function (): void {
+    /** @phpstan-ignore wyrihaximus.reactphp.blocking.function.sleep */
     sleep(1);
 })));
 
 assertType('Closure(): void', (static fn () => $runtime->run(static function (int $time): void {
+    /** @phpstan-ignore wyrihaximus.reactphp.blocking.function.sleep */
     sleep($time);
 }, [1])));
 

@@ -15,6 +15,7 @@ final readonly class Runtime
 {
     private ParallelRuntime $runtime;
 
+    /** @api */
     public static function create(EventLoopBridge $eventLoopBridge): self
     {
         return new self($eventLoopBridge, LOCATION);
@@ -49,6 +50,7 @@ final readonly class Runtime
      * @template A3
      * @template A4
      * @template A5
+     * @api
      */
     public function run(Closure $callable, array $args = []): mixed
     {
@@ -61,11 +63,13 @@ final readonly class Runtime
         return null;
     }
 
+    /** @api */
     public function close(): void
     {
         $this->runtime->close();
     }
 
+    /** @api */
     public function kill(): void
     {
         $this->runtime->kill();

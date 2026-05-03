@@ -27,6 +27,7 @@ final class RuntimeTest extends AsyncTestCase
 
         try {
             $result = $runtime->run(static function (int $sleep): int {
+                /** @phpstan-ignore wyrihaximus.reactphp.blocking.function.sleep */
                 sleep($sleep);
 
                 return $sleep;
@@ -35,6 +36,7 @@ final class RuntimeTest extends AsyncTestCase
             $runtime->kill();
         }
 
+        /** @phpstan-ignore staticMethod.alreadyNarrowedType */
         self::assertSame($sleep, $result);
     }
 
@@ -47,7 +49,8 @@ final class RuntimeTest extends AsyncTestCase
         $runtime = Runtime::create(new EventLoopBridge());
 
         try {
-            $three = $runtime->run(static function (): never {
+            $runtime->run(static function (): never {
+                /** @phpstan-ignore wyrihaximus.reactphp.blocking.function.sleep */
                 sleep(3);
 
                 throw new LatchcombException('Rethrow exception');

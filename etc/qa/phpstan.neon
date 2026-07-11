@@ -4,11 +4,6 @@ parameters:
 		- ../../src
 		- ../../tests
 	level: max
-	ignoreErrors:
-		-
-			identifier: shipmonk.nonNormalizedType
-			path: ../../src/Runtime.php
-			count: 10
 	ergebnis:
 		noExtends:
 			classesAllowedToBeExtended:

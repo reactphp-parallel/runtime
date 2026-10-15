@@ -44,7 +44,7 @@ final class RuntimeTest extends AsyncTestCase
     public function convertFailure(): void
     {
         self::expectException(LatchcombException::class);
-        self::expectExceptionMessage('Rethrow exception');
+        self::expectExceptionMessageIsOrContains('Rethrow exception');
 
         $runtime = Runtime::create(new EventLoopBridge());
 
@@ -64,11 +64,11 @@ final class RuntimeTest extends AsyncTestCase
     public function weClosedTheThread(): void
     {
         self::expectException(Closed::class);
-        self::expectExceptionMessage('Runtime closed');
+        self::expectExceptionMessageIsOrContains('Runtime closed');
 
         $runtime = Runtime::create(new EventLoopBridge());
 
-        /** @var PromiseInterface<int> $promise */
+        /** @var PromiseInterface<3> $promise */
         $promise = timedPromise(1, $runtime)->then(static fn (Runtime $runtime) => $runtime->run(static fn (): int => 3));
 
         Loop::futureTick(static function () use ($runtime): void {
@@ -82,11 +82,11 @@ final class RuntimeTest extends AsyncTestCase
     public function weKilledTheThread(): void
     {
         self::expectException(Closed::class);
-        self::expectExceptionMessage('Runtime closed');
+        self::expectExceptionMessageIsOrContains('Runtime closed');
 
         $runtime = Runtime::create(new EventLoopBridge());
 
-        /** @var PromiseInterface<int> $promise */
+        /** @var PromiseInterface<3> $promise */
         $promise = timedPromise(1, $runtime)->then(static fn (Runtime $runtime) => $runtime->run(static fn (): int => 3));
 
         Loop::futureTick(static function () use ($runtime): void {

@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ReactParallel\Runtime;
 
 use Closure;
-use parallel\Future;
 use parallel\Runtime as ParallelRuntime;
 use ReactParallel\EventLoop\EventLoopBridge;
 
@@ -54,13 +53,12 @@ final readonly class Runtime
      */
     public function run(Closure $callable, array $args = []): mixed
     {
-        $future = $this->runtime->run($callable, $args);
-
-        if ($future instanceof Future) {
-            return $this->eventLoopBridge->await($future);
-        }
-
-        return null;
+        return $this->eventLoopBridge->await(
+            $this->runtime->run(
+                $callable,
+                $args,
+            ),
+        );
     }
 
     /** @api */

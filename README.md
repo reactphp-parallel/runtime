@@ -3,11 +3,9 @@
 ![Continuous Integration](https://github.com/Reactphp-parallel/runtime/workflows/Continuous%20Integration/badge.svg)
 [![Latest Stable Version](https://poser.pugx.org/React-parallel/runtime/v/stable.png)](https://packagist.org/packages/React-parallel/runtime)
 [![Total Downloads](https://poser.pugx.org/React-parallel/runtime/downloads.png)](https://packagist.org/packages/React-parallel/runtime)
-[![Code Coverage](https://scrutinizer-ci.com/g/Reactphp-parallel/runtime/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/Reactphp-parallel/runtime/?branch=master)
-[![Type Coverage](https://shepherd.dev/github/Reactphp-parallel/runtime/coverage.svg)](https://shepherd.dev/github/Reactphp-parallel/runtime)
 [![License](https://poser.pugx.org/React-parallel/runtime/license.png)](https://packagist.org/packages/React-parallel/runtime)
 
-### Installation ###
+## Installation
 
 To install via [Composer](http://getcomposer.org/), use the command below, it will automatically detect the latest version and bind it with `~`.
 
@@ -30,11 +28,11 @@ echo $runtime->run(function (): int {
 }), PHP_EOL;
 ```
 
-## Contributing ##
+## Contributing
 
 Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
-## License ##
+## License
 
 Copyright 2026 [Cees-Jan Kiewiet](http://wyrihaximus.net/)
 

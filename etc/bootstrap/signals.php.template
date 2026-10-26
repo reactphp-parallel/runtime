@@ -1,0 +1,16 @@
+<?php
+
+declare(strict_types=1);
+
+use parallel\Channel;
+use ReactParallel\Runtime\Signal;
+use ReactParallel\Runtime\SignalListener;
+
+require '{{AUTOLOAD}}';
+
+/** @var Channel<Signal> $channel */
+$channel = Channel::open('{{CHANNEL}}');
+
+SignalListener::listen($channel);
+
+unlink(__FILE__);

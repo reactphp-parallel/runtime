@@ -12,10 +12,11 @@
   "require": {
     "php": "^8.4",
     "ext-parallel": "*",
-    "react-parallel/event-loop": "^2.1.0",
+    "react-parallel/event-loop": "dev-fix-cleanup-when-generator-is-abandoned as 2.1.0",
+    "react/async": "^4.3",
     "react/event-loop": "^1.5.0",
     "react/promise": "^3.3.0",
-    "wyrihaximus/constants": "^1.6.0"
+    "wyrihaximus/constants": "^1.6"
   },
   "require-dev": {
     "react-parallel/stubs": "^1.2.0",

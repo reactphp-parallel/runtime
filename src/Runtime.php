@@ -5,14 +5,29 @@ declare(strict_types=1);
 namespace ReactParallel\Runtime;
 
 use Closure;
+use parallel\Channel;
 use parallel\Runtime as ParallelRuntime;
+use React\EventLoop\Loop;
 use ReactParallel\EventLoop\EventLoopBridge;
+
+use function file_get_contents;
+use function file_put_contents;
+use function posix_getpid;
+use function posix_kill;
+use function React\Async\async;
+use function str_replace;
+use function sys_get_temp_dir;
+use function tempnam;
+use function uniqid;
 
 use const WyriHaximus\Constants\ComposerAutoloader\LOCATION;
 
 final readonly class Runtime
 {
     private ParallelRuntime $runtime;
+
+    /** @var Channel<Signal> */
+    private Channel $signalChannel;
 
     /** @api */
     public static function create(EventLoopBridge $eventLoopBridge): self
@@ -22,7 +37,11 @@ final readonly class Runtime
 
     public function __construct(private EventLoopBridge $eventLoopBridge, string $autoload)
     {
-        $this->runtime = new ParallelRuntime($autoload);
+        $channelName = '.well-known/react-parallel/runtime/signals/' . uniqid('', true);
+        /** @phpstan-ignore assign.propertyType */
+        $this->signalChannel = Channel::make($channelName, Channel::Infinite);
+        $this->runtime       = new ParallelRuntime($this->createBootstrapFile($autoload, $channelName));
+        $this->forwardSignals();
     }
 
     /**
@@ -71,5 +90,32 @@ final readonly class Runtime
     public function kill(): void
     {
         $this->runtime->kill();
+    }
+
+    private function forwardSignals(): void
+    {
+        Loop::addTimer(0.0, async(function (): void {
+            foreach ($this->eventLoopBridge->observe($this->signalChannel) as $signal) {
+                /** @phpstan-ignore property.nonObject, argument.type */
+                posix_kill(posix_getpid(), $signal->number);
+            }
+        }));
+    }
+
+    private function createBootstrapFile(string $autoload, string $channelName): string
+    {
+        $file = tempnam(sys_get_temp_dir(), 'react_parallel_');
+        /** @phpstan-ignore wyrihaximus.reactphp.blocking.function.filePutContents */
+        file_put_contents(
+            $file,
+            str_replace(
+                ['{{AUTOLOAD}}', '{{CHANNEL}}'],
+                [$autoload, $channelName],
+                /** @phpstan-ignore wyrihaximus.reactphp.blocking.function.fileGetContents, argument.type */
+                file_get_contents(__DIR__ . '/../etc/bootstrap/signals.php.template'),
+            ),
+        );
+
+        return $file;
     }
 }
